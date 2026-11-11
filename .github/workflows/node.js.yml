@@ -1,0 +1,32 @@
+
+name: Gerar NUI Studio Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Gerar EXE portátil
+        run: npm run dist:win
+
+      - name: Disponibilizar EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: NUI-Studio-FiveM-Windows
+          path: dist/*.exe
