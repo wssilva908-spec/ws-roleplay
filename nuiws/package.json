@@ -1,0 +1,23 @@
+{
+  "name": "nui-studio-fivem",
+  "version": "1.0.0",
+  "description": "Editor visual de NUI para FiveM",
+  "main": "src/main.js",
+  "author": "NUI Studio",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "br.aparecidarp.nuistudio",
+    "productName": "NUI Studio FiveM",
+    "directories": { "output": "dist" },
+    "files": ["src/**/*", "package.json"],
+    "win": { "target": ["portable"], "artifactName": "NUI-Studio-FiveM-${version}-Portable.${ext}" }
+  }
+}

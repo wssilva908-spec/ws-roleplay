@@ -1,0 +1,34 @@
+NUI STUDIO - FIVEM
+===================
+
+O que esta primeira versão oferece:
+- Editor visual com elementos de painel, texto, botão, imagem, campo, etiqueta, divisor e círculo.
+- Arrastar elementos na área de trabalho.
+- Propriedades de posição, tamanho, cores, opacidade, bordas, fonte, alinhamento e visibilidade.
+- Painel de camadas.
+- Salvar projeto localmente.
+- Prévia do HTML/CSS/JavaScript.
+- Exportação da resource FiveM com fxmanifest.lua e pasta html.
+
+IMPORTANTE SOBRE O EXECUTÁVEL:
+Este pacote contém o projeto completo do aplicativo, mas o ambiente usado para gerar os arquivos é Linux.
+Por isso não consigo compilar e testar um .exe Windows diretamente aqui.
+O workflow .github/workflows/build-windows.yml está configurado para gerar automaticamente o executável
+Windows portátil usando GitHub Actions.
+
+Para gerar o EXE:
+1. Crie um repositório no GitHub e envie todos os arquivos desta pasta.
+2. Abra a aba Actions.
+3. Execute "Build Windows Portable EXE" (ou aguarde o build após enviar para main).
+4. Baixe o artefato "NUI-Studio-FiveM-Windows".
+5. Execute NUI-Studio-FiveM-1.0.0-Portable.exe no Windows. Não precisa instalar.
+
+Para executar em modo de desenvolvimento:
+- Instale Node.js 22+
+- Abra um terminal nesta pasta
+- Execute: npm install
+- Execute: npm start
+
+Observação: esta é a versão inicial funcional do editor. A exportação gera a estrutura básica da resource
+e o código visual; eventos específicos do seu servidor (callbacks Lua, NUI callbacks e lógica de gameplay)
+precisam ser conectados no JavaScript/Lua conforme cada projeto.

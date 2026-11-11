@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUI Studio FiveM</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brandmark">N</div><div><b>NUI STUDIO</b><small>FIVEM INTERFACE DESIGNER</small></div></div>
+  <div class="project"><span class="dot"></span><span id="projectName">Projeto sem título</span><button class="ghost" id="renameBtn">RENOMEAR</button></div>
+  <div class="top-actions"><button class="ghost" id="saveBtn">Salvar projeto</button><button class="ghost" id="previewBtn">Pré-visualizar</button><button class="primary" id="exportBtn">↧ Exportar NUI</button></div>
+</header>
+<div class="workspace">
+  <aside class="left">
+    <div class="side-head">ELEMENTOS <span>+</span></div>
+    <div class="group-label">BÁSICOS</div>
+    <div class="tool-grid">
+      <button class="tool" data-add="panel"><i>▱</i><span>Painel</span></button>
+      <button class="tool" data-add="text"><i>T</i><span>Texto</span></button>
+      <button class="tool" data-add="button"><i>▭</i><span>Botão</span></button>
+      <button class="tool" data-add="image"><i>▧</i><span>Imagem</span></button>
+      <button class="tool" data-add="input"><i>▤</i><span>Campo</span></button>
+      <button class="tool" data-add="badge"><i>◉</i><span>Etiqueta</span></button>
+    </div>
+    <div class="group-label">LAYOUT</div>
+    <div class="tool-grid">
+      <button class="tool" data-add="divider"><i>━</i><span>Divisor</span></button>
+      <button class="tool" data-add="circle"><i>◯</i><span>Círculo</span></button>
+    </div>
+    <div class="hint"><b>Dica rápida</b><p>Adicione um elemento e arraste-o na tela. Selecione para editar suas propriedades.</p></div>
+    <div class="left-footer">NUI STUDIO <span>v1.0.0</span></div>
+  </aside>
+  <main class="center">
+    <div class="canvas-toolbar"><div><b>ÁREA DE TRABALHO</b><small> · 1920 × 1080 (referência)</small></div><div class="canvas-tools"><button id="zoomOut">−</button><span id="zoomLabel">100%</span><button id="zoomIn">+</button><button id="resetView">Ajustar</button></div></div>
+    <div class="stage-wrap" id="stageWrap"><div id="stage" class="stage"><div class="empty-hint" id="emptyHint"><div>✦</div><b>Sua NUI começa aqui</b><span>Escolha um elemento no painel esquerdo para começar</span></div></div></div>
+    <div class="statusbar"><span><i class="green-dot"></i> Editor pronto</span><span id="selectionStatus">Nenhum elemento selecionado</span><span>FiveM · NUI</span></div>
+  </main>
+  <aside class="right">
+    <div class="tabs"><button class="tab active" data-tab="properties">PROPRIEDADES</button><button class="tab" data-tab="layers">CAMADAS</button></div>
+    <section id="propertiesPanel" class="inspector">
+      <div class="no-selection" id="noSelection"><div>◇</div><b>Nenhum elemento selecionado</b><span>Selecione um elemento na área de trabalho para editar.</span></div>
+      <div id="propertyForm" hidden>
+        <div class="section-title">GERAL</div>
+        <label>Nome do elemento<input id="propName"></label>
+        <label>Texto / conteúdo<input id="propText"></label>
+        <div class="section-title">POSIÇÃO E TAMANHO</div>
+        <div class="two"><label>X<input type="number" id="propX"></label><label>Y<input type="number" id="propY"></label></div>
+        <div class="two"><label>Largura<input type="number" id="propW"></label><label>Altura<input type="number" id="propH"></label></div>
+        <div class="section-title">APARÊNCIA</div>
+        <label>Cor do texto / conteúdo<input type="color" id="propColor"></label>
+        <label>Cor de fundo<input type="color" id="propBg"></label>
+        <div class="two"><label>Opacidade<input type="range" min="0" max="100" id="propOpacity"></label><label>Arredondamento<input type="number" min="0" max="100" id="propRadius"></label></div>
+        <label>Tamanho da fonte<input type="number" min="8" max="120" id="propFont"></label>
+        <label>Família da fonte<select id="propFontFamily"><option>Arial</option><option>Roboto</option><option>Inter</option><option>Montserrat</option><option>sans-serif</option><option>monospace</option></select></label>
+        <label>Alinhamento<select id="propAlign"><option value="left">Esquerda</option><option value="center">Centro</option><option value="right">Direita</option></select></label>
+        <label class="check"><input type="checkbox" id="propBold"> Negrito</label>
+        <label class="check"><input type="checkbox" id="propHidden"> Ocultar elemento</label>
+        <button class="danger full" id="deleteBtn">Excluir elemento</button>
+      </div>
+    </section>
+    <section id="layersPanel" class="layers" hidden><div class="section-title">ELEMENTOS DO PROJETO</div><div id="layerList"></div></section>
+  </aside>
+</div>
+<div class="modal-backdrop" id="codeModal" hidden><div class="modal"><div class="modal-head"><b>PRÉ-VISUALIZAÇÃO DO CÓDIGO</b><button id="closeCode">✕</button></div><div class="code-tabs"><button class="active" data-code="html">HTML</button><button data-code="css">CSS</button><button data-code="js">JAVASCRIPT</button></div><pre id="codePreview"></pre></div></div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
